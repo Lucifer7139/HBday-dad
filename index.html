@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 56th Birthday Dad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .age-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .message-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: slideIn 1s ease-out 0.5s both;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .message-card h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .message-card p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .highlight-card h3 {
+            color: #4a5568;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .heart {
+            color: #e53e3e;
+            font-size: 1.5rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.2); }
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            color: rgba(229, 62, 62, 0.7);
+            font-size: 2rem;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .age-display {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .message-card {
+                padding: 25px;
+            }
+            
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="floating-hearts" id="floating-hearts"></div>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>Happy Birthday Dad!</h1>
+            <div class="age-display">56</div>
+            <p>Celebrating an amazing father who has given everything for his family</p>
+        </div>
+        
+        <div class="message-card">
+            <h2>A Letter to My Hero <span class="heart">♥</span></h2>
+            <p>Dear Dad,</p>
+            <p>For 12 years now, you've been both my father and my mother, carrying the weight of raising me all on your own. Since you were 44, you've shown me what true strength, love, and dedication look like every single day.</p>
+            
+            <p>I know I've disappointed you with my marks, and I carry that weight in my heart. But I want you to know that every day I wake up determined to make you proud. Your sacrifices haven't gone unnoticed, and your love hasn't gone unappreciated.</p>
+            
+            <p>You've taught me that love isn't just words – it's staying up late to help with homework, working extra hours to provide for our family, and never giving up on me even when I've given up on myself.</p>
+            
+            <p>Today, on your 56th birthday, I want you to know that you are my greatest inspiration. I'm still trying my best, still fighting to prove myself, because you've shown me that giving up is never an option.</p>
+            
+            <p>I love you more than words can express, Dad. Thank you for being everything I needed, even when it meant being everything to everyone.</p>
+            
+            <p>With all my love,<br>Your child who is still learning, still growing, and still making you proud in ways you might not even see yet.</p>
+        </div>
+        
+        <div class="highlights">
+            <div class="highlight-card">
+                <h3>12 Years Strong</h3>
+                <p>Twelve incredible years of single parenthood, showing me what unconditional love really means. Your strength has been my foundation.</p>
+            </div>
+            
+            <div class="highlight-card">
+                <h3>My Greatest Teacher</h3>
+                <p>You've taught me resilience, determination, and the value of hard work. Every lesson came with love and patience.</p>
+            </div>
+            
+            <div class="highlight-card">
+                <h3>Still Trying</h3>
+                <p>Though my marks may not always reflect it, I'm working every day to make you proud. Your belief in me keeps me going.</p>
+            </div>
+            
+            <div class="highlight-card">
+                <h3>Forever Grateful</h3>
+                <p>For every sacrifice, every late night, every worry you've carried – I see it all, and I'm grateful for every single moment.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Made with <span class="heart">♥</span> for the world's greatest dad</p>
+        <p>Happy 56th Birthday!</p>
+    </div>
+    
+    <script>
+        // Create floating stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heartsContainer = document.getElementById('floating-hearts');
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '♥';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+        
+        // Initialize
+        createStars();
+        
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 2000);
+        
+        // Add some interactive sparkle effects
+        document.addEventListener('click', function(e) {
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.innerHTML = '✨';
+                    sparkle.style.position = 'fixed';
+                    sparkle.style.left = e.clientX + (Math.random() - 0.5) * 50 + 'px';
+                    sparkle.style.top = e.clientY + (Math.random() - 0.5) * 50 + 'px';
+                    sparkle.style.fontSize = '20px';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.zIndex = '1000';
+                    sparkle.style.animation = 'fadeOut 1s ease-out forwards';
+                    document.body.appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 1000);
+                }, i * 100);
+            }
+        });
+        
+        // Add fadeOut animation for sparkles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: scale(1) translateY(0); }
+                100% { opacity: 0; transform: scale(0.5) translateY(-30px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
